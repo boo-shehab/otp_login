@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import ReactCountryFlag from 'react-country-flag';
 import './phoneNumberInput.css'
+import CustomButton from '../customButton/CustomButton';
 
 const countries = [
   { value: '+964', label: 'Iraq', code: 'IQ' },
@@ -33,7 +34,7 @@ const customStyles = {
 const PhoneNumberInput = ({handleNext}) => {
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [phone, setPhone] = useState('');
-  const [accountType, setAccountType] = useState(null)
+  const [activePhone, setActivePhone] = useState(true)
 
   const handleCountryChange = (selectedOption) => {
     
@@ -41,9 +42,10 @@ const PhoneNumberInput = ({handleNext}) => {
   };
 
   useEffect(() => {
-    if(phone.length === 10){
-        setAccountType(true)
-    }
+    const phoneRegex = /^(\+964|964|0)?7(5[0-9]|7[0-9]|8[0-9])[0-9]{7}$/;
+    setActivePhone(phoneRegex.test(phone));
+    console.log(activePhone);
+    
     
   }, [phone])
 
@@ -83,7 +85,7 @@ const PhoneNumberInput = ({handleNext}) => {
         />
         </div>
         
-        <button type="button" onClick={() => {handleNext()}} disabled={accountType === null}>next</button>
+        <CustomButton onClick={() => {handleNext({phone: phone.replace(/^(\+964|964)/, '0'),countryCode: selectedCountry.value})}} disabled={!activePhone}>Send verification code</CustomButton>
     </div>
   );
 };

@@ -5,11 +5,29 @@ import PhoneInput from 'react-phone-number-input'
 import './register.css'
 import PhoneNumberInput from "../../components/PhoneNumberInput/PhoneNumberInput";
 import OtpComponent from "../../components/OtpComponent/OtpComponent";
+import CustomButton from "../../components/customButton/CustomButton";
 
 const Register = () => {
     const [accountType, setAccountType] = useState(null);
     const [stage, setStage] = useState(1);
-    const [value, setValue] = useState()
+    const [phoneNumber, setPhoneNumber] = useState('');
+
+    const handlePhoneNumber = (phone) => {
+        console.log(phone);
+        setPhoneNumber(phone)
+        setStage(3)
+    }
+    
+    const handleOTP = () => {
+        const userInfo = {
+            phoneNumber,
+            accountType,
+            userInfo: null,
+        };
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+        console.log("User info saved to localStorage:", userInfo);
+    }
 
     return (
         <>
@@ -43,16 +61,15 @@ const Register = () => {
                                 </label>
                                 </div>
 
-                                <button type="button" onClick={() => {setStage(2)
-                                }} disabled={accountType === null}>next</button>
+                                <CustomButton onClick={() => {setStage(2)}} disabled={accountType === null}>next &gt;</CustomButton>
                             </>
                         )}
                         
                         {stage === 2 && (
-                            <PhoneNumberInput handleNext={() => setStage(3)} />
+                            <PhoneNumberInput handleNext={(phone) => handlePhoneNumber(phone)} />
                         )}
                         {stage === 3 && (
-                            <OtpComponent />
+                            <OtpComponent handleNext={() => handleOTP()} />
                         )}
                     </div>
                 </div>
