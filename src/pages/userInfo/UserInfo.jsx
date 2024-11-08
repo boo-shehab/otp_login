@@ -75,12 +75,12 @@ const UserInfo = () => {
                 <div className="userInfoContainer">
                     <div className="steps">
                         <span className="done"></span>
-                        <span></span>
-                        <span></span>
+                        <span className="done"></span>
+                        <span className="done"></span>
                     </div>
                     <div>
-                        <h1>Let’s Get Started!</h1>
-                        <p>How do you plan to use this platform?</p>
+                        <h1>Enter Your Information</h1>
+                        <p>Please enter your personal information to complete the registration process.</p>
                     </div>
                     <div className="form">
                         <div className="type">

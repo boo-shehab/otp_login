@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import RegisterContainer from "../../components/RegisterContainer/RegisterContainer";
 import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
 import './register.css'
 import PhoneNumberInput from "../../components/PhoneNumberInput/PhoneNumberInput";
 import OtpComponent from "../../components/OtpComponent/OtpComponent";
@@ -11,6 +11,7 @@ const Register = () => {
     const [accountType, setAccountType] = useState(null);
     const [stage, setStage] = useState(1);
     const [phoneNumber, setPhoneNumber] = useState('');
+    const navigate = useNavigate();
 
     const handlePhoneNumber = (phone) => {
         console.log(phone);
@@ -27,6 +28,7 @@ const Register = () => {
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
         console.log("User info saved to localStorage:", userInfo);
+        navigate('/user-info')
     }
 
     return (
@@ -35,12 +37,22 @@ const Register = () => {
                 <div className="Account-type">
                     <div className="steps">
                     <span className="done"></span>
-                    <span></span>
+                    <span className={`${stage === 2? 'half-done': stage === 3? 'done': ''}`}></span>
                     <span></span>
                     </div>
                     <div>
-                        <h1>Let’s Get started!</h1>
-                        <p>How do you plan to use this platform</p>
+                        {stage === 1 ? (
+                            <>
+                                <h1>Let’s Get started!</h1>
+                                <p>How do you plan to use this platform</p>
+                            </>
+                        ) : (
+                            <>
+                                <h1>Enter Your Phone Number</h1>
+                                <p>Enter your phone number to verify your identity and the validity of your number to safely activate your account on the platform.</p>
+                            </>
+                            
+                        )}
                     </div>
                     <div className="form">
                         {stage === 1 && (
