@@ -10,6 +10,7 @@
 
 .left{
     background-color: #3C97AF;
+    position: relative;
     border-radius: 20px;
     padding: 128px 21px;
     text-align: center;
@@ -17,6 +18,14 @@
 }
 .left h1 {
     padding-bottom: 48px;
+}
+
+.left div img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .right {
