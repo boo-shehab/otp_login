@@ -4,9 +4,7 @@ import Post from "../../components/post/Post"
 import Rate from "../../components/rate/Rate"
 import TwoStageFormPopup from "../../components/TwoStageFormPopup/TwoStageFormPopup"
 import "./Home.css"
-import { useAppStore } from "../../store"
 const Home = () => {
-    const {projectsPosts} = useAppStore()
   const [isPopupOpen, setIsPopupOpen] = useState(false);
     const handleNewProject = () =>{
         setIsPopupOpen(true)
