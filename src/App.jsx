@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import Register from "./pages/register/Register";
 import UserInfo from "./pages/userInfo/UserInfo";
-import Home from "./pages/home/Home.jsx";
+import Home from "./pages/home/Home";
 import MainLayout from "./layout/MainLayout";
 import Profile from "./pages/profile/Profile";
 
