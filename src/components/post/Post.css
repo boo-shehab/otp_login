@@ -1,0 +1,96 @@
+#post .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+#post .header .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#post .header .user-info img {
+    width: 50px;
+    height: 50px;
+}
+
+#post .header .user-info p {
+    font-size: 10px;
+    color: #808080;
+    font-weight: 400;
+}
+
+#post .header .actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#post .header .actions .status {
+    font-size: 12px;
+    padding: 10px 16px;
+    border-radius: 16px;
+    background-color: #eee;
+}
+
+#post .header .actions .status.active {
+    color: #4DB251;
+    background-color: #DDF8E7;
+}
+
+#post .header .actions .dots {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 4px 8px;
+}
+
+#post .header .actions .dots span{
+    width: 5px;
+    height: 5px;
+    background-color: #BFBFBF;
+    border-radius: 50%;
+}
+
+#post .content {
+    margin-top: 12px;
+}
+
+#post .content p {
+    font-size: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-weight: 400;
+    color: #999999;
+}
+
+#post .content p span {
+    color: #3C97AF;
+    font-size: 14px;
+}
+
+#post .content img{
+    aspect-ratio: 10 / 3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#post .footer {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 16px;
+}
+
+#post .footer button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #999;
+}

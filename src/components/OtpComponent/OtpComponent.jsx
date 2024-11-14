@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { OtpInput } from 'reactjs-otp-input';
 import './OtpComponent.css';
 import CustomButton from '../customButton/CustomButton';
