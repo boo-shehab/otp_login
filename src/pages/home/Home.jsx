@@ -4,6 +4,7 @@ import Post from "../../components/post/Post"
 import Rate from "../../components/rate/Rate"
 import TwoStageFormPopup from "../../components/TwoStageFormPopup/TwoStageFormPopup"
 import "./Home.css"
+import { Link } from "react-router-dom"
 const Home = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
     const handleNewProject = () =>{
@@ -17,7 +18,9 @@ const Home = () => {
                         <img src="./profile_image.svg" alt="" />
                         <h4>Mustafa Emad</h4>
                         <Rate rate="10.0" />
-                        <CustomButton>Edit Profile</CustomButton>
+                        <Link to="/profile">
+                            <CustomButton>Edit Profile</CustomButton>
+                        </Link>
                     </div>
                 </div>
                 <div className="sheet">
