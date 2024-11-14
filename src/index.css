@@ -5,3 +5,20 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.sheet {
+  background-color: white;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.sacred-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}

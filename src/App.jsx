@@ -7,6 +7,7 @@ import UserInfo from "./pages/userInfo/UserInfo";
 import Home from "./pages/Home/Home";
 import Header from "./components/header/Header";
 import MainLayout from "./layout/MainLayout";
+import Profile from "./pages/profile/Profile";
 
 
 function App() {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />
       },
       {
         path: "/dashboard",

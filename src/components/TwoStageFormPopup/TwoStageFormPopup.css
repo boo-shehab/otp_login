@@ -97,7 +97,9 @@
 
   }
   
-  #popup-overlay select, textarea,input {
+  #popup-overlay select,
+  #popup-overlay textarea,
+  #popup-overlay input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;

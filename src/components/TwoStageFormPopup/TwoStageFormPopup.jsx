@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TwoStageFormPopup.css'
 import CustomButton from '../customButton/CustomButton';
+import { useAppStore } from '../../store';
 
 const TwoStageFormPopup = ({ isOpen, onClose }) => {
+  const {projectsPosts, addNewProjectPost} = useAppStore((state) => state)
   const [stage, setStage] = useState(1);
   const [formData, setFormData] = useState({ 
     qualification: '', 
@@ -24,9 +26,21 @@ const TwoStageFormPopup = ({ isOpen, onClose }) => {
   };
 
   const handleSave = (e) => {
-    
+    addNewProjectPost(formData)
+    setFormData({ 
+      qualification: '', 
+      description: '', 
+      files: [],
+      duration: "",
+      pricingType: 0,
+      price: ""
+    })
+    onClose()
   }
-
+  useEffect(()=> {
+    console.log(projectsPosts);
+  }, [projectsPosts])
+  
   if (!isOpen) return null;
 
   return (
@@ -96,8 +110,8 @@ const TwoStageFormPopup = ({ isOpen, onClose }) => {
             <label>
                 Pricing Type
                 <div className='sacred-code'>
-                    <button onClick={() => setFormData({ ...formData, ['pricingType']: 1 })}>Per Hour</button>
-                    <button onClick={() => setFormData({ ...formData, ['pricingType']: 2 })}>For The Project</button>
+                    <button type='button' onClick={() => setFormData({ ...formData, ['pricingType']: 1 })}>Per Hour</button>
+                    <button type='button' onClick={() => setFormData({ ...formData, ['pricingType']: 2 })}>For The Project</button>
                 </div>
             </label>
             {formData.pricingType >= 1 && (

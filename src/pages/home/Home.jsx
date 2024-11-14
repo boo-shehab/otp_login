@@ -4,8 +4,9 @@ import Post from "../../components/post/Post"
 import Rate from "../../components/rate/Rate"
 import TwoStageFormPopup from "../../components/TwoStageFormPopup/TwoStageFormPopup"
 import "./Home.css"
+import { useAppStore } from "../../store"
 const Home = () => {
-
+    const {projectsPosts} = useAppStore()
   const [isPopupOpen, setIsPopupOpen] = useState(false);
     const handleNewProject = () =>{
         setIsPopupOpen(true)
@@ -68,7 +69,7 @@ const Home = () => {
                     <div className="new-post">
                         <img src="./profile_image.svg" alt="" />
                         <div className="post">
-                            <input type="text" placeholder="Mustafa Let’s Create a Project !" />
+                            <input type="text" onClick={handleNewProject} placeholder="Mustafa Let’s Create a Project !" />
                             <CustomButton onClick={handleNewProject} className="new-post-button">+</CustomButton>
                         </div>
                     </div>

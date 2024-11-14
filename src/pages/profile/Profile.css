@@ -1,0 +1,18 @@
+#profile {
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 12px;
+}
+#profile .user-info {
+    border-bottom: 2px solid #bfbfbf;
+    padding-bottom: 12px;
+}
+
+#profile .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    gap: 12px;
+}
