@@ -2,6 +2,7 @@
     background-color: #F8FBFC;
     display: flex;
     padding: 24px;
+    gap: 16px;
 }
 
 #home-container .sheet {
@@ -23,12 +24,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+#home-container .left-side .about .content {
+    font-size: 14px;
+    color: #999;
 }
 
 #home-container .left-side .projects-history .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 16px;
 }
 
 #home-container .left-side .projects-history .action {
@@ -40,6 +48,45 @@
 #home-container .left-side .projects-history .action .add-button {
     font-size: 28px;
     font-weight: 200;
+}
+
+#home-container .left-side .projects-history .project-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px;
+}
+
+#home-container .left-side .projects-history .side-line {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    gap: 4px;
+}
+
+#home-container .left-side .projects-history .side-line span:nth-child(1) {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #3C97AF;
+    border-radius: 50%;
+} 
+
+#home-container .left-side .projects-history .side-line span:nth-child(2) {
+    display: block;
+    width: 2px;
+    height: calc(100% - 18px);
+    background-color: #3C97AF;
+}
+
+#home-container .left-side .projects-history .project .sub-title{
+    font-size: 12px;
+    color: #999999;
+}
+
+#home-container .left-side .projects-history .project .content {
+    font-size: 12px;
 }
 
 #home-container .mid {
@@ -98,9 +145,14 @@
     gap: 12px;
     margin-bottom: 34px;
 }
-#home-container .right-side .recent-projects .header p {
+p.button {
     font-size: 14px;
     color: #3C97AF;
+}
+
+#home-container .right-side .recent-projects .project.bottom-border {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #F2F2F2;
 }
 
 #home-container .right-side .recent-projects .project .project-header {
@@ -124,5 +176,40 @@
 #home-container .right-side .recent-projects .project .content {
     font-size: 12px;
     margin-top: 16px;
+    color: #999;
+}
+
+#home-container .right-side .freelancers .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    gap: 12px;
+}
+
+#home-container .right-side .freelancers .freelancers-users .user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    gap: 10px;
+}
+
+#home-container .right-side .freelancers .freelancers-users .user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+#home-container .right-side .freelancers .freelancers-users .user .info{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+#home-container .right-side .freelancers .freelancers-users .user .info p {
+    font-size: 12px;
     color: #999;
 }

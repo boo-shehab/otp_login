@@ -1,0 +1,17 @@
+#rate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+#rate img.star {
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#rate p {
+    font-size: 10px;
+    font-weight: 400;
+    color: #999;
+}
