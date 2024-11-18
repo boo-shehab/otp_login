@@ -14,8 +14,9 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handlePhoneNumber = (phone) => {
-        console.log(phone);
         setPhoneNumber(phone)
+        console.log('otp: 000000');
+        
         setStage(3)
     }
     
@@ -27,7 +28,6 @@ const Register = () => {
         };
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
-        console.log("User info saved to localStorage:", userInfo);
         navigate('/user-info')
     }
 

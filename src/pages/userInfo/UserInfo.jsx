@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CustomButton from "../../components/customButton/CustomButton";
 import RegisterContainer from "../../components/RegisterContainer/RegisterContainer";
-import './UserInfo.css';
+import "./UserInfo.css";
+import { useNavigate } from "react-router-dom";
 
 const UserInfo = () => {
     const [isDisabled, setIsDisabled] = useState(true);
+    const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState({
-        password: '',
-        email: '',
-        name: ''
+        password: "",
+        email: "",
+        name: "",
     });
     const [errors, setErrors] = useState({
-        email: '',
-        password: ''
+        email: "",
+        password: "",
     });
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,27 +25,29 @@ const UserInfo = () => {
             ...prevInfo,
             [id]: value,
         }));
-
-        validateInputs(id, value);
     };
 
-    const validateInputs = (id, value) => {
-        let emailError = '';
-        let passwordError = '';
+    useEffect(() => {
+        let emailError = "";
+        let passwordError = "";
 
-        if (id === 'email' && value) {
-            emailError = emailRegex.test(value) ? '' : 'Please enter a valid email address.';
+        if (userInfo.email) {
+            emailError = emailRegex.test(userInfo.email)
+                ? ""
+                : "Please enter a valid email address.";
         }
 
-        if (id === 'password' && value) {
-            passwordError = value.length >= 8 ? '' : 'Password must be at least 8 characters long.';
+        if (userInfo.password) {
+            passwordError =
+                userInfo.password.length >= 8
+                    ? ""
+                    : "Password must be at least 8 characters long.";
         }
 
-        setErrors((prevErrors) => ({
-            ...prevErrors,
+        setErrors({
             email: emailError,
-            password: passwordError
-        }));
+            password: passwordError,
+        });
 
         setIsDisabled(
             !(
@@ -52,20 +56,20 @@ const UserInfo = () => {
                 userInfo.password.length >= 8
             )
         );
-    };
+    }, [userInfo]);
 
     const handleUserInfo = () => {
-        const storedData = JSON.parse(localStorage.getItem('userInfo'));
-    
+        const storedData = JSON.parse(localStorage.getItem("userInfo"));
+
         const newData = storedData || {};
         newData.userInfo = {
             name: userInfo.name,
             email: userInfo.email,
-            password: userInfo.password
+            password: userInfo.password,
         };
-    
-        localStorage.setItem('userInfo', JSON.stringify(newData));
-    
+
+        localStorage.setItem("userInfo", JSON.stringify(newData));
+        navigate("/");
         console.log("User Info Submitted:", newData);
     };
 
@@ -80,7 +84,10 @@ const UserInfo = () => {
                     </div>
                     <div>
                         <h1>Enter Your Information</h1>
-                        <p>Please enter your personal information to complete the registration process.</p>
+                        <p>
+                            Please enter your personal information to complete
+                            the registration process.
+                        </p>
                     </div>
                     <div className="form">
                         <div className="type">
@@ -103,7 +110,9 @@ const UserInfo = () => {
                                     value={userInfo.email}
                                     onChange={handleInputChange}
                                 />
-                                {errors.email && <p className="error">{errors.email}</p>}
+                                {errors.email && (
+                                    <p className="error">{errors.email}</p>
+                                )}
                             </label>
                             <label htmlFor="password">
                                 <p>Password</p>
@@ -114,10 +123,15 @@ const UserInfo = () => {
                                     value={userInfo.password}
                                     onChange={handleInputChange}
                                 />
-                                {errors.password && <p className="error">{errors.password}</p>}
+                                {errors.password && (
+                                    <p className="error">{errors.password}</p>
+                                )}
                             </label>
                         </div>
-                        <CustomButton onClick={handleUserInfo} disabled={isDisabled}>
+                        <CustomButton
+                            onClick={handleUserInfo}
+                            disabled={isDisabled}
+                        >
                             Complete Registration
                         </CustomButton>
                     </div>

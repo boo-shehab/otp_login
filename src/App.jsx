@@ -7,46 +7,64 @@ import UserInfo from "./pages/userInfo/UserInfo";
 import Home from "./pages/home/Home";
 import MainLayout from "./layout/MainLayout";
 import Profile from "./pages/profile/Profile";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  
-const router = createBrowserRouter([
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/user-info",
-    element: <UserInfo />,
-  },
-  {
-    element: <MainLayout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/profile",
-        element: <Profile />
-      },
-      {
-        path: "/dashboard",
-        element: <Home />,
-      },
-      {
-        path: "/setting",
-        element: <Home />,
-      },
-    ],
-  },
-]);
+  const isAuthenticated = false;
+
+  const router = createBrowserRouter([
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/user-info",
+      element: <UserInfo />,
+    },
+    {
+      element: <MainLayout />,
+      children: [
+        {
+          path: "/",
+          element: (
+            <ProtectedRoute isProtected={true}>
+              <Home />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/profile",
+          element: (
+            <ProtectedRoute isProtected={true}>
+              <Profile />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/dashboard",
+          element: (
+            <ProtectedRoute isProtected={true}>
+              <Home />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/setting",
+          element: (
+            <ProtectedRoute isProtected={true}>
+              <Home />
+            </ProtectedRoute>
+          ),
+        },
+      ],
+    },
+  ]);
+
   return (
     <>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
