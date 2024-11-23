@@ -20,13 +20,13 @@ const Register = () => {
         setStage(3)
     }
     
-    const handleOTP = () => {
+    const handleOTP = async() => {
         const userInfo = {
             phoneNumber,
             accountType,
             userInfo: null,
         };
-        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        await localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
         navigate('/user-info')
     }
