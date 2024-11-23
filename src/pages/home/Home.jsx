@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import CustomButton from "../../components/customButton/CustomButton"
 import Post from "../../components/post/Post"
 import Rate from "../../components/rate/Rate"
@@ -7,9 +7,19 @@ import "./Home.css"
 import { Link } from "react-router-dom"
 const Home = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isAboutEdit, setIsAboutEdit] = useState(false);
+  let aboutData = ''
+  const [about, setAbout] = useState('GreenTech Solutions Inc. Renewable Energy & Technology San Francisco, California, with operations in North America and Europe')
     const handleNewProject = () =>{
         setIsPopupOpen(true)
     }
+
+    // useEffect(() => {
+    //     if(isAboutEdit) {
+    //         aboutData = about;
+    //     }
+    // }, [isAboutEdit])
+
     return (
         <div id="home-container">
             <div className="left-side">
@@ -27,12 +37,18 @@ const Home = () => {
                     <div className="about">
                         <div className="header">
                             <h4>About</h4>
-                            <img src="./edit.svg" alt="" />
+                            {isAboutEdit? (
+                                <div>
+                                    <img className='cursor-pointer' width='20px' height='20px' onClick={() => setIsAboutEdit(false)} src="./check-mark.png" alt="" />
+                                </div>
+                            ):(
+                                <img className='cursor-pointer' onClick={() => setIsAboutEdit(true)} src="./edit.svg" alt="" />
+                            )}
                         </div>
                         <p className="content">
-                            GreenTech Solutions Inc.
-                            Renewable Energy & Technology
-                            San Francisco, California, with operations in North America and Europe
+                            {isAboutEdit? (
+                                <textarea name="about" id="about" value={about} onChange={(e) => setAbout(e.target.value)} style={{width: '100%', minHeight: '100px'}}></textarea>
+                            ): about}
                         </p>
                     </div>
                 </div>

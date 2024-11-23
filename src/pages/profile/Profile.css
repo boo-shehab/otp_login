@@ -1,8 +1,10 @@
 #profile {
-    background-color: aqua;
+    background-color: #F8F9FC;
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 58% 38%;
     gap: 12px;
+    justify-content: center;
+    padding-top: 24px;
 }
 #profile .user-info {
     border-bottom: 2px solid #bfbfbf;
@@ -15,4 +17,90 @@
     justify-content: space-between;
     padding-top: 16px;
     gap: 12px;
+}
+
+#profile .projects-history .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+#profile .header .action {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#profile .header .action .add-button {
+    font-size: 28px;
+    font-weight: 200;
+}
+
+#profile .projects-history .project-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px;
+}
+
+#profile .projects-history .side-line {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    gap: 4px;
+}
+
+#profile .projects-history .side-line span:nth-child(1) {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #3C97AF;
+    border-radius: 50%;
+} 
+
+#profile .projects-history .side-line span:nth-child(2) {
+    display: block;
+    width: 2px;
+    height: calc(100% - 18px);
+    background-color: #3C97AF;
+}
+
+#profile .projects-history .project .sub-title{
+    font-size: 12px;
+    color: #999999;
+}
+
+#profile .projects-history .project .content {
+    font-size: 12px;
+}
+
+#profile .info-list {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#profile .info-item {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-size: 14px;
+}
+  
+#profile .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+  
+#profile .label {
+    flex: 1;
+}
+  
+#profile .value {
+    color: #888;
 }
