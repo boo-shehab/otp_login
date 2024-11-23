@@ -27,7 +27,8 @@ const Register = () => {
             userInfo: null,
         };
         await localStorage.setItem("userInfo", JSON.stringify(userInfo));
-
+        console.log(localStorage.getItem('userInfo'));
+        
         navigate('/user-info')
     }
 
